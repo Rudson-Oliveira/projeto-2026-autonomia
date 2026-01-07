@@ -49,3 +49,8 @@ Este checklist deve ser executado pelo Manus AI no início de cada sessão de tr
 ---
 
 **Checklist concluído?** → Iniciar tarefas do dia.
+
+## 5. Ativar Watchdog de Autonomia (Opcional, mas Recomendado)
+- **Ação:** Execute o script `WATCHDOG_AUTONOMIA.ps1` em um terminal PowerShell separado para monitoramento contínuo.
+- **Comando:** `cd C:\projeto-2026-autonomia; .\scripts\WATCHDOG_AUTONOMIA.ps1`
+- **Objetivo:** Garantir que o n8n e o Ollama sejam reiniciados automaticamente em caso de falha, mantendo o sistema sempre operacional.
