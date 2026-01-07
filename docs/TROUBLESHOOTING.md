@@ -12,3 +12,10 @@ Este documento registra falhas identificadas e as soluções aplicadas automatic
 - **Sintoma:** Workflows de orçamentos demorando mais de 60s.
 - **Causa Provável:** Modelos LLM lentos ou muitos processos simultâneos.
 - **Solução Aplicada:** Otimização dos parâmetros `num_predict` e `stream: false`.
+
+
+## 3. Falha Sistêmica: Failure Rate de 91% (n8n Cloud)
+- **Sintoma:** 566 falhas em 622 execuções (Failure Rate: 91%).
+- **Causa Provável:** Quebra de túnel de comunicação entre a n8n Cloud e os serviços locais (Ollama/n8n Local).
+- **Ação em Curso:** Auditoria de logs de erro via COMET para identificar o código de erro exato (ECONNREFUSED/TIMEOUT).
+- **Data:** 07/01/2026
