@@ -19,3 +19,11 @@ Este documento registra falhas identificadas e as soluções aplicadas automatic
 - **Causa Provável:** Quebra de túnel de comunicação entre a n8n Cloud e os serviços locais (Ollama/n8n Local).
 - **Ação em Curso:** Auditoria de logs de erro via COMET para identificar o código de erro exato (ECONNREFUSED/TIMEOUT).
 - **Data:** 07/01/2026
+
+
+## 4. Falha de Conexão Ollama (Diagnóstico Confirmado)
+- **Sintoma:** `"The connection was aborted, perhaps the server is offline"` no nó `HTTP Request` do n8n, com timeout de 5 minutos.
+- **Causa Raiz:** Ollama inacessível ou travado, impedindo o processamento de requisições API, apesar da porta estar aberta.
+- **Solução Proposta:** Limpeza e reinicialização forçada do container Ollama (`docker stop`, `docker rm`, `docker run`).
+- **Status:** Solução em execução via COMET.
+- **Data:** 07/01/2026
