@@ -21,14 +21,21 @@ Este checklist deve ser executado pelo Manus AI no início de cada sessão de tr
 | Agente | Método de Teste | Status |
 |--------|-----------------|--------|
 | **COMET Desktop** | `py: print("Conectado")` | ✅ |
+| **COMET Browser** | Acesso direto ao N8N via Chrome | ✅ |
+| **MANUS Terminal** | Acesso via Docker/Git/Shell | ✅ |
 | **COMET Bridge** | `curl https://.../health` | ✅ |
 | **Orquestrador** | Webhook POST /orquestrador-dinamico | ✅ |
 
 ---
 
-## 📚 PASSO 3: VALIDAÇÃO DE WORKFLOWS
+## 📚 PASSO 3: VALIDAÇÃO DE WORKFLOWS (COMET + MANUS)
 
-Verificar se os seguintes workflows estão **ATIVOS** e **PUBLICADOS**:
+**Ação COMET (Visual):**
+- Verificar se a interface do N8N está carregada.
+- Confirmar se os agentes Personal Agents estão visíveis.
+
+**Ação MANUS (Terminal):**
+- Verificar se os seguintes workflows estão **ATIVOS** e **PUBLICADOS**:
 1.  **WF-MCC-GET-URL-GS** (ID: sQUdHBk2xx8YAf6w)
 2.  **WF-ORQUESTRADOR-DINAMICO** (ID: NdO3l3D1cHqpLNDV)
 

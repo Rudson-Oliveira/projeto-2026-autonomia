@@ -18,10 +18,13 @@ Este guia é o **manual de operações** para o ecossistema de agentes do Projet
 
 **Siga esta ordem para decidir qual agente usar:**
 
-1.  **A tarefa pode ser feita com um comando de terminal?**
-    *   **Sim** → Use **COMET Desktop Agent V2.0**
+1.  **A tarefa envolve interação visual ou direta com o N8N (browser)?**
+    *   **Sim** → Use **COMET Desktop Agent V2.0** (Conexão Direta via Browser)
 
-2.  **A tarefa envolve automação de processos, APIs ou agendamento?**
+2.  **A tarefa envolve infraestrutura, Docker, Git ou Terminal?**
+    *   **Sim** → Use **MANUS AI** (Acesso via Terminal/Ssh)
+
+3.  **A tarefa envolve automação de processos, APIs ou agendamento?**
     *   **Sim** → Use **N8N** (via workflows existentes ou criando novos)
 
 3.  **A tarefa requer geração de texto, análise de dados ou raciocínio?**
@@ -181,8 +184,13 @@ import requests; body = {"agente": "AGENTE_LOCAL", "mensagem": "Resuma este text
 
 O objetivo é que o **Manus AI** possa usar o **COMET Bridge** para executar comandos no **COMET Desktop Agent**, que por sua vez pode chamar **N8N** e **Ollama**.
 
-**Fluxo Autônomo Ideal:**
-`Manus AI → COMET Bridge (ngrok) → COMET Desktop Agent → N8N/Ollama`
+**Fluxo Autônomo Integrado (NOVO):**
+`MANUS AI (Estratégia) ↔ COMET Desktop (Operação Browser) ↔ N8N Agents`
+
+**Capacidades Integradas:**
+- **COMET:** Acesso DIRETO via browser aos agentes n8n (AGENT-JS-DEBUGGER, etc).
+- **MANUS:** Acesso via terminal/Git/Docker para suporte de infraestrutura.
+- **Sincronia:** MANUS envia comandos de infraestrutura enquanto COMET manipula a interface do N8N.
 
 Para isso, o COMET Bridge precisa ter um endpoint `/execute` que aceite comandos e os execute no sistema.
 

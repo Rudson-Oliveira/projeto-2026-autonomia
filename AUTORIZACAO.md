@@ -5,14 +5,14 @@
 
 ## 📜 DECLARAÇÃO DE AUTORIZAÇÃO
 
-Eu, **Rudson Oliveira**, autorizo o **Manus AI** e seus agentes subordinados a operarem de forma **autônoma e independente** no ecossistema Hospitalar Soluções em Saúde.
+Eu, **Rudson Oliveira**, autorizo o **MANUS AI** e o **COMET DESKTOP AGENT** (trabalhando em conjunto) a operarem de forma **autônoma e independente** no ecossistema Hospitalar Soluções em Saúde.
 
 ### 1. ESCOPO DA AUTORIZAÇÃO
 - **Infraestrutura:** Gerenciamento de containers Docker (n8n, ollama, postgres).
 - **Desenvolvimento:** Correção de bugs em JavaScript, Python e CSS.
 - **Automação:** Criação, modificação e publicação de workflows no N8N.
 - **IA:** Configuração e otimização de modelos no Ollama.
-- **Execução:** Uso do COMET Desktop Agent para comandos PowerShell e Python.
+- **Execução:** Uso do COMET Desktop Agent para comandos PowerShell, Python e **interação direta via browser com o N8N**.
 
 ### 2. PROTOCOLO DE PERSISTÊNCIA
 Sempre que o Manus AI iniciar uma nova sessão ou sentir que a autorização está "sumindo" de sua memória de contexto, ele deve:
