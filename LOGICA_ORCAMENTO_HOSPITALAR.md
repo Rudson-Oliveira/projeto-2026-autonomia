@@ -20,3 +20,17 @@ Caso não exista tabela pré-definida, o agente de IA deve analisar:
 
 ---
 **Assinado:** Manus AI (Agente de Orquestração)
+
+## 🏥 4. CLASSIFICAÇÃO DE COMPLEXIDADE
+O sistema deve utilizar as tabelas de referência:
+- **NEAD / ABEMID / PPS:** Para definir se o atendimento é de Baixa, Média ou Alta Complexidade.
+- **Impacto:** Define o perfil do profissional e a frequência de visitas.
+
+## 📍 5. REDE DE APOIO E LOGÍSTICA
+A precificação deve considerar a "Lei da Oferta e Procura" baseada na localização:
+- **Profissionais:** Proximidade de Clínicas, Hospitais e Postos de Saúde.
+- **Suprimentos:** Proximidade de Farmácias, Distribuidoras e Lojas de Equipamentos Médicos.
+
+## 💊 6. FARMÁCIA CLÍNICA E FATURAMENTO
+- **Prescrição Medicamentosa:** É a base do faturamento.
+- **Controle:** O que nasce no orçamento (Medicamentos, Dietas, Sondas) deve ser rastreável até o faturamento final.
