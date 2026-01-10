@@ -1,0 +1,121 @@
+version: '3.8'
+
+services:
+  # MySQL Database Service
+  hospitalar_db:
+    image: mysql:8.0
+    container_name: hospitalar_db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - hospitalar_network
+
+  # PostgreSQL Database Service (New)
+  hospitalar_postgres:
+    image: postgres:13
+    container_name: hospitalar_postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB_DATABASE}
+      POSTGRES_USER: ${POSTGRES_DB_USERNAME}
+      POSTGRES_PASSWORD: ${POSTGRES_DB_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - hospitalar_network
+
+  # Laravel Backend Service
+  hospitalar_backend:
+    build:
+      context: ./hospitalar_backend
+      dockerfile: Dockerfile
+    container_name: hospitalar_backend
+    ports:
+      - "8000:8000"
+    environment:
+      DB_CONNECTION: mysql
+      DB_HOST: hospitalar_db
+      DB_PORT: 3306
+      DB_DATABASE: ${DB_DATABASE}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      # Add PostgreSQL environment variables if needed for future integration
+      POSTGRES_DB_CONNECTION: pgsql
+      POSTGRES_DB_HOST: hospitalar_postgres
+      POSTGRES_DB_PORT: 5432
+      POSTGRES_DB_DATABASE: ${POSTGRES_DB_DATABASE}
+      POSTGRES_DB_USERNAME: ${POSTGRES_DB_USERNAME}
+      POSTGRES_DB_PASSWORD: ${POSTGRES_DB_PASSWORD}
+      N8N_WEBHOOK_URL: http://n8n:5678/webhook-test/orcamento
+      OLLAMA_ENDPOINT: http://ollama:11434
+    volumes:
+      - ./hospitalar_backend:/var/www/html
+    depends_on:
+      - hospitalar_db
+      - hospitalar_postgres
+      - n8n
+      - ollama
+    networks:
+      - hospitalar_network
+
+  # Frontend Service (Angular/Vue)
+  hospitalar_frontend:
+    build:
+      context: ./hospitalar_frontend
+      dockerfile: Dockerfile
+    container_name: hospitalar_frontend
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./hospitalar_frontend:/app
+    depends_on:
+      - hospitalar_backend
+    networks:
+      - hospitalar_network
+
+  # n8n Workflow Automation Service
+  n8n:
+    image: n8nio/n8n
+    container_name: n8n
+    environment:
+      N8N_HOST: localhost
+      N8N_PORT: 5678
+      N8N_PROTOCOL: http
+      N8N_BASIC_AUTH_ACTIVE: "false"
+      N8N_EDITOR_BASE_URL: http://localhost:5678/
+      N8N_WEBHOOK_URL: http://localhost:5678/
+    ports:
+      - "5678:5678"
+    volumes:
+      - n8n_data:/home/node/.n8n
+    networks:
+      - hospitalar_network
+
+  # Ollama AI Service (New)
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - hospitalar_network
+
+networks:
+  hospitalar_network:
+    driver: bridge
+
+volumes:
+  db_data:
+  postgres_data:
+  n8n_data:
+  ollama_data:
