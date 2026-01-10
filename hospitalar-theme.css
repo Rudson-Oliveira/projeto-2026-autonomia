@@ -1,0 +1,32 @@
+/* 🏥 TEMA OFICIAL HOSPITALAR SAÚDE - DATA: 10/01/2026 */
+:root {
+  --hospitalar-verde: #59C2C9; /* Verde Turquesa - Tranquilidade */
+  --hospitalar-azul: #1A3688;  /* Azul Intenso - Credibilidade */
+  --hospitalar-cinza: #808080; /* Suporte */
+  --hospitalar-font: 'Kozuka Gothic Pro R', sans-serif;
+}
+
+.dashboard-header {
+  background-color: var(--hospitalar-azul) !important;
+  color: white !important;
+}
+
+.btn-primary, .action-button {
+  background-color: var(--hospitalar-verde) !important;
+  border-color: var(--hospitalar-verde) !important;
+}
+
+.chat-bubble-agent {
+  background-color: var(--hospitalar-verde) !important;
+  color: white;
+}
+
+.chat-bubble-user {
+  background-color: var(--hospitalar-azul) !important;
+  color: white;
+}
+
+.sidebar-menu {
+  background-color: #f8f9fa;
+  border-right: 3px solid var(--hospitalar-verde);
+}
