@@ -1,16 +1,17 @@
 {
     "project_name": "HospitaLar - Autonomia Total",
-    "status": "95% Concluído - Aguardando Go-Live",
-    "last_update": "2026-01-10T12:00:00Z",
+    "status": "98% Concluído - Airtop.ai Integrada",
+    "last_update": "2026-01-11T03:00:00Z",
     "repositories": {
         "main_project": "https://github.com/Rudson-Oliveira/projeto-2026-autonomia",
         "obsidian_agent": "https://github.com/Rudson-Oliveira/obsidian-agente",
-        "uipath_agent_multimodelo": "https://github.com/Rudson-Oliveira/hospitalar-uipath-agent-multimodelo" 
+        "uipath_agent_multimodelo": "https://github.com/Rudson-Oliveira/hospitalar-uipath-agent-multimodelo"
     },
     "credentials": {
         "uipath_orchestrator_url": "https://cloud.uipath.com/hospitalarsaude",
         "uipath_client_id": "4579-0379-7019-4236",
-        "uipath_user_email": "rud.pa@hotmail.com"
+        "uipath_user_email": "rud.pa@hotmail.com",
+        "airtop_api_key": "40988ea7894557c.kEI9Bg63LE6Y0c9xfLCBhpTvj0otUKfQGuKYFPJVd5"
     },
     "ia_configuration": {
         "ollama": {
@@ -19,12 +20,19 @@
             "role": "Análise local de perfil e vulnerabilidade"
         },
         "obsidian_agent": {
-            "status": "Lógica de decisão atualizada com regras HospitaLar",
+            "status": "Lógica de decisão atualizada com regras HospitaLar e roteamento Airtop.ai",
             "files_modified": [
                 "agent/decision_logic.py",
                 "agent/intelligent_agent.py"
             ],
             "role": "Orquestrador de IAs e automação"
+        },
+        "airtop_ai": {
+            "status": "Estratégia de integração desenhada e documentada",
+            "role": "Navegação web inteligente e extração de dados não estruturados",
+            "files_documented": [
+                "AIRTOP_INTEGRATION_STRATEGY.md"
+            ]
         }
     },
     "uipath_integration": {
@@ -53,6 +61,7 @@
         "Executar o comando PowerShell final no ambiente local para garantir a infraestrutura e arquivos no lugar.",
         "Desenvolver os robôs UiPath no UiPath Studio (Sprint 2).",
         "Integrar os componentes frontend no roteamento e layout do projeto (Sprint 3).",
-        "Realizar testes de ponta a ponta e homologação."
+        "Realizar testes de ponta a ponta e homologação.",
+        "Implementar o módulo de integração Airtop.ai no Agente Multimodelo (Obsidian Agent)."
     ]
 }
