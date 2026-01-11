@@ -1,6 +1,6 @@
 {
     "project_name": "HospitaLar - Autonomia Total",
-    "status": "98% Concluído - Airtop.ai Integrada",
+    "status": "99% Concluído - Credenciais UiPath Finalizadas",
     "last_update": "2026-01-11T03:00:00Z",
     "repositories": {
         "main_project": "https://github.com/Rudson-Oliveira/projeto-2026-autonomia",
@@ -10,6 +10,8 @@
     "credentials": {
         "uipath_orchestrator_url": "https://cloud.uipath.com/hospitalarsaude",
         "uipath_client_id": "4579-0379-7019-4236",
+        "uipath_refresh_token": "rt_D67B3D5918C4F5A64EC55AF469CAA15B92FA237945C2A90DAB1CA6920752DF15-1",
+        "uipath_tenant_id": "e8e6f0f1-f928-4bbe-aa90-f98326f031b9",
         "uipath_user_email": "rud.pa@hotmail.com",
         "airtop_api_key": "40988ea7894557c.kEI9Bg63LE6Y0c9xfLCBhpTvj0otUKfQGuKYFPJVd5"
     },
@@ -36,7 +38,7 @@
         }
     },
     "uipath_integration": {
-        "status": "Serviço Laravel criado, roteamento no agente configurado",
+        "status": "Serviço Laravel criado, roteamento no agente configurado e credenciais finalizadas",
         "files_modified": [
             "hospitalar_backend/app/Services/UiPathService.php",
             "UIPATH_INTEGRATION_STRATEGY.md"

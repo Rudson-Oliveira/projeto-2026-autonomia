@@ -36,8 +36,11 @@ Este documento detalha a estratégia para integrar a plataforma de Automação R
 
 ### 3. Credenciais de Acesso
 - **UiPath Orchestrator URL:** `https://cloud.uipath.com/hospitalarsaude`
-- **Client ID (Client Credentials Flow):** `4579-0379-7019-4236`
-- **Client Secret:** Será gerado no Orchestrator e armazenado de forma segura nas variáveis de ambiente do Laravel (`.env`).
+- **Client ID:** `4579-0379-7019-4236`
+- **Refresh Token:** `rt_D67B3D5918C4F5A64EC55AF469CAA15B92FA237945C2A90DAB1CA6920752DF15-1`
+- **Tenant/Organization ID:** `e8e6f0f1-f928-4bbe-aa90-f98326f031b9`
+
+Estas credenciais serão armazenadas de forma segura nas variáveis de ambiente do servidor onde o backend Laravel estiver rodando (`UIPATH_ORCHESTRATOR_URL`, `UIPATH_CLIENT_ID`, `UIPATH_REFRESH_TOKEN`, `UIPATH_TENANT_ID`).
 
 ---
 
@@ -49,7 +52,8 @@ Adicionar ao arquivo `.env` do Laravel:
 ```dotenv
 UIPATH_ORCHESTRATOR_URL="https://cloud.uipath.com/hospitalarsaude"
 UIPATH_CLIENT_ID="4579-0379-7019-4236"
-UIPATH_CLIENT_SECRET="your_uipath_client_secret"
+UIPATH_REFRESH_TOKEN="rt_D67B3D5918C4F5A64EC55AF469CAA15B92FA237945C2A90DAB1CA6920752DF15-1"
+UIPATH_TENANT_ID="e8e6f0f1-f928-4bbe-aa90-f98326f031b9"
 UIPATH_TENANT_NAME="hospitalarsaude" # Ajustar conforme o nome do seu tenant
 UIPATH_ACCOUNT_NAME="hospitalarsaude" # Ajustar conforme o nome da sua conta
 ```
