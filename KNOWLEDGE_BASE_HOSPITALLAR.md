@@ -20,6 +20,7 @@ O sistema **HospitaLar** é uma plataforma de gestão de Home Care focada no **M
 - **Automação:** n8n - Porta 5678
 - **Inteligência Artificial:** Ollama (Llama2/Mistral) - Porta 11434
 - **Infraestrutura:** Docker Compose
+- **Resiliência e CI/CD:** GitHub Actions, GitHub Copilot, CodeQL
 
 ---
 
@@ -83,6 +84,23 @@ Para garantir a resiliência máxima, o Agente Multimodelo implementará uma est
 3.  **Tentativa 3: Puppeteer (Chrome-Specific Fallback):** Em caso de falha do Playwright, o Puppeteer será usado para automações otimizadas para o Chrome.
 4.  **Tentativa 4: Selenium (Legacy/Robust Fallback):** Última linha de defesa para portais legados ou em cenários de alta complexidade.
 
+#### 6.3. Estratégia de Resiliência e Automação via GitHub (Plano B)
+
+Para garantir a continuidade operacional e a qualidade do código, o HospitaLar integrará as ferramentas do ecossistema GitHub:
+
+*   **GitHub Actions (CI/CD e Failover):** Atuará como um mecanismo de "auto-recuperação". Em caso de falha do ambiente local, workflows agendados no Actions podem assumir a execução de processos críticos (ex: disparo de robôs UiPath, execução de scripts Airtop/Playwright) em ambientes de nuvem. Também será usado para testes automatizados e deploy contínuo.
+*   **GitHub Copilot (Assistência de Código):** Acelera o desenvolvimento e melhora a qualidade do código, sugerindo soluções e correções em tempo real para os desenvolvedores.
+*   **CodeQL (Análise de Segurança):** Realiza análises semânticas de código automatizadas para identificar vulnerabilidades e erros de segurança, protegendo dados sensíveis e garantindo a conformidade.
+
+
+
+Para garantir a resiliência máxima, o Agente Multimodelo implementará uma estratégia de failover entre diferentes ferramentas de automação web:
+
+1.  **Tentativa 1: Airtop.ai (IA-Driven Navigation):** Primeira escolha para navegação inteligente e contorno de desafios web.
+2.  **Tentativa 2: Playwright (Modern Scripted Automation):** Se a Airtop.ai falhar, o Playwright será acionado para automação estruturada e rápida em múltiplos navegadores.
+3.  **Tentativa 3: Puppeteer (Chrome-Specific Fallback):** Em caso de falha do Playwright, o Puppeteer será usado para automações otimizadas para o Chrome.
+4.  **Tentativa 4: Selenium (Legacy/Robust Fallback):** Última linha de defesa para portais legados ou em cenários de alta complexidade.
+
 
 
 A Airtop.ai atua como o "Módulo de Navegação Inteligente", permitindo que o Agente Multimodelo interaja com portais web complexos e dinâmicos, superando as limitações da RPA tradicional em cenários web.
@@ -126,9 +144,9 @@ A Airtop.ai atua como o "Módulo de Navegação Inteligente", permitindo que o A
 ---
 
 ## 📈 ROADMAP DE EVOLUÇÃO
-1. **Fase Atual:** Integração com Agente Multimodelo (Obsidian Agent) e UiPath.
-2. **Próxima Fase:** Desenvolvimento de robôs UiPath específicos para faturamento e elegibilidade.
-3. **Visão Futura:** Predição de desospitalização baseada em tendências clínicas.
+1. **Fase Atual:** Integração com Agente Multimodelo (Obsidian Agent), UiPath e Airtop.ai.
+2. **Próxima Fase:** Implementação da estratégia de redundância de navegação (Playwright, Puppeteer, Selenium) e configuração dos workflows de resiliência no GitHub Actions.
+3. **Visão Futura:** Desenvolvimento de robôs UiPath específicos para faturamento e elegibilidade, e predição de desospitalização baseada em tendências clínicas.
 
 ---
 **Assinado:** Manus AI - Agente de Orquestração de Conhecimento
