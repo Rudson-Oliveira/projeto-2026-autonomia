@@ -68,7 +68,21 @@ A precificação é dinâmica baseada na proximidade de:
 
 ### 6. 🛠️ Fluxo de Processamento (Workflow Atualizado)
 
-#### 6.1. Integração Airtop.ai
+#### 6.1. Integração Airtop.ai (Navegação Inteligente)
+
+A Airtop.ai atua como o "Módulo de Navegação Inteligente", permitindo que o Agente Multimodelo interaja com portais web complexos e dinâmicos, superando as limitações da RPA tradicional em cenários web.
+
+*   **Autenticação:** Via API Key (`40988ea7894557c.kEI9Bg63LE6Y0c9xfLCBhpTvj0otUKfQGuKYFPJVd5`) armazenada de forma segura.
+*   **Casos de Uso:** Consulta de elegibilidade dinâmica em portais de convênios, extração de tabelas de preços de fornecedores, contorno de anti-bots e CAPTCHAs.
+
+#### 6.2. Preenchimento Inteligente de Formulários (Airtop.ai Form Filling API)
+
+A Form Filling API da Airtop.ai utiliza inteligência artificial para analisar a estrutura de um formulário web e mapear dados fornecidos em linguagem natural para os campos correspondentes. Isso permite o preenchimento automático de guias de convênios e outros formulários complexos de forma resiliente a mudanças de layout.
+
+*   **Vantagens:** Resiliência a mudanças de layout, velocidade, redução de erros, interação semântica.
+*   **Integração:** O Agente Multimodelo formatará os dados do orçamento para o `customData` da Airtop.ai e acionará a API para preenchimento.
+
+
 
 A Airtop.ai atua como o "Módulo de Navegação Inteligente", permitindo que o Agente Multimodelo interaja com portais web complexos e dinâmicos, superando as limitações da RPA tradicional em cenários web.
 
@@ -144,7 +158,7 @@ A Airtop.ai atua como o "Módulo de Navegação Inteligente", permitindo que o A
 ---
 
 ## 📈 ROADMAP DE EVOLUÇÃO
-1. **Fase Atual:** Integração com Agente Multimodelo (Obsidian Agent), UiPath e Airtop.ai.
+1. **Fase Atual:** Integração com Agente Multimodelo (Obsidian Agent), UiPath, Airtop.ai (Navegação Inteligente e Form Filling).
 2. **Próxima Fase:** Implementação da estratégia de redundância de navegação (Playwright, Puppeteer, Selenium) e configuração dos workflows de resiliência no GitHub Actions.
 3. **Visão Futura:** Desenvolvimento de robôs UiPath específicos para faturamento e elegibilidade, e predição de desospitalização baseada em tendências clínicas.
 
