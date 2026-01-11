@@ -12,6 +12,7 @@ O sistema **HospitaLar** é uma plataforma de gestão de Home Care focada no **M
 ## 🛠️ ARQUITETURA TÉCNICA
 - **Agente Multimodelo:** Obsidian Agent (Python Flask) - Roteamento inteligente de IAs e Plugins
 - **RPA/Automação:** UiPath Orchestrator e Robots
+- **Redundância de Navegação:** Playwright, Puppeteer, Selenium (orquestrados pelo Agente Multimodelo)
 
 - **Backend:** Laravel (PHP) - Porta 8000
 - **Frontend:** Angular/Vue - Porta 4200
@@ -73,6 +74,22 @@ A Airtop.ai atua como o "Módulo de Navegação Inteligente", permitindo que o A
 *   **Autenticação:** Via API Key (`40988ea7894557c.kEI9Bg63LE6Y0c9xfLCBhpTvj0otUKfQGuKYFPJVd5`) armazenada de forma segura.
 *   **Casos de Uso:** Consulta de elegibilidade dinâmica em portais de convênios, extração de tabelas de preços de fornecedores, contorno de anti-bots e CAPTCHAs.
 
+#### 6.2. Estratégia de Redundância de Navegação (Failover)
+
+Para garantir a resiliência máxima, o Agente Multimodelo implementará uma estratégia de failover entre diferentes ferramentas de automação web:
+
+1.  **Tentativa 1: Airtop.ai (IA-Driven Navigation):** Primeira escolha para navegação inteligente e contorno de desafios web.
+2.  **Tentativa 2: Playwright (Modern Scripted Automation):** Se a Airtop.ai falhar, o Playwright será acionado para automação estruturada e rápida em múltiplos navegadores.
+3.  **Tentativa 3: Puppeteer (Chrome-Specific Fallback):** Em caso de falha do Playwright, o Puppeteer será usado para automações otimizadas para o Chrome.
+4.  **Tentativa 4: Selenium (Legacy/Robust Fallback):** Última linha de defesa para portais legados ou em cenários de alta complexidade.
+
+
+
+A Airtop.ai atua como o "Módulo de Navegação Inteligente", permitindo que o Agente Multimodelo interaja com portais web complexos e dinâmicos, superando as limitações da RPA tradicional em cenários web.
+
+*   **Autenticação:** Via API Key (`40988ea7894557c.kEI9Bg63LE6Y0c9xfLCBhpTvj0otUKfQGuKYFPJVd5`) armazenada de forma segura.
+*   **Casos de Uso:** Consulta de elegibilidade dinâmica em portais de convênios, extração de tabelas de preços de fornecedores, contorno de anti-bots e CAPTCHAs.
+
 
 
 1.  **Captação:** O n8n recebe mensagens ou áudios e os envia para o backend Laravel.
@@ -82,6 +99,7 @@ A Airtop.ai atua como o "Módulo de Navegação Inteligente", permitindo que o A
     *   **Ollama:** Processa a requisição e retorna uma resposta estruturada.
     *   **UiPath (via Manus Bridge):** Se a requisição for para automação estruturada, o Agente Multimodelo aciona o `UiPathService.php` no Laravel, que por sua vez dispara um processo no UiPath Orchestrator.
     *   **Airtop.ai (via Agente Multimodelo):** Se a requisição for para navegação web inteligente (ex: extração de dados de portais dinâmicos), o Agente Multimodelo fará uma chamada à API da Airtop.ai para criar uma sessão de navegador em nuvem e executar a tarefa.
+    *   **Playwright/Puppeteer/Selenium (via Agente Multimodelo):** Em caso de falha da Airtop.ai, o Agente Multimodelo acionará a ferramenta de automação web apropriada (Playwright, Puppeteer ou Selenium) seguindo a estratégia de failover.
 5.  **Retorno:** A resposta da IA ou o status da automação é retornado ao Laravel e, em seguida, ao frontend.
 
 ## 📂 ESTRUTURA DE ARQUIVOS CRÍTICOS
