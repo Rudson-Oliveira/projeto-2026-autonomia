@@ -3,7 +3,7 @@
 # Versão 1.0.0
 
 param(
-    [string]$LaravelPath = "C:\Users\rudpa\Documents\hospitalar\hospitalar_v2"
+    [string]$LaravelPath = "C:\Users\rudpa\Documents\hospitalar\hospitalar_v2\hospitalar_backend"
 )
 
 Write-Host "============================================" -ForegroundColor Cyan
@@ -101,10 +101,10 @@ Write-Host "2. Adicionar ao routes/api.php:" -ForegroundColor White
 Write-Host "   require __DIR__ . '/ia_routes.php';" -ForegroundColor Gray
 Write-Host ""
 Write-Host "3. Executar no terminal:" -ForegroundColor White
-Write-Host "   php artisan config:clear" -ForegroundColor Gray
-Write-Host "   php artisan route:clear" -ForegroundColor Gray
+Write-Host "   docker exec -it hospitalar_php php artisan config:clear" -ForegroundColor Gray
+Write-Host "   docker exec -it hospitalar_php php artisan route:clear" -ForegroundColor Gray
 Write-Host ""
 Write-Host "4. Testar:" -ForegroundColor White
-Write-Host "   curl http://localhost:8000/api/ia/health" -ForegroundColor Gray
+Write-Host "   curl http://localhost:8888/api/ia/health" -ForegroundColor Gray
 Write-Host ""
 Write-Host "Documentação: https://github.com/Rudson-Oliveira/projeto-2026-autonomia/tree/master/laravel-ia-module" -ForegroundColor Cyan
